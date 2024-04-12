@@ -4,21 +4,23 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 let likerObject = document.getElementsByClassName('like-glyph')
-for( let liker of likerObject) {
-  liker.addEventListener('click', mimicServerCall)
+for(let singleLike of likerObject) {
+  singleLike.addEventListener('click', e=>{
+if(e.target.innerHTML===EMPTY_HEART) {
+  mimicServerCall()
+  .then(res=>res)
+  .catch((res) =>{
+    document.getElementById('modal').className = ""
+    document.getElementById('modal-message').innerHTML = res
+    console.log(res)
+  })
+  }
+ // singleLike.innerHTML = FULL_HEART
+else if(e.target.innerHTML===FULL_HEART) {
+      singleLike.innerHTML = EMPTY_HEART
 }
-if(mimicServerCall.target%2===0){
-  console.log (EMPTY_HEART)
+  })
 }
-else {
-  console.log(FULL_HEART)
-}
-//  // fetch('http://mimicServer.example.com')
-//   .then (response=>response)
-//   .catch ()
-// }
-
-
 
 
 //------------------------------------------------------------------------------
