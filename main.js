@@ -12,12 +12,16 @@ if(e.target.innerHTML===EMPTY_HEART) {
   .catch((res) =>{
     document.getElementById('modal').className = ""
     document.getElementById('modal-message').innerHTML = res
-    console.log(res)
+    let timeOut = setTimeout(()=>{
+      document.getElementById('modal').className = "hidden"
+      singleLike.innerHTML = FULL_HEART
+      singleLike.className = "activated-heart"
+    }, 3000)
   })
   }
- // singleLike.innerHTML = FULL_HEART
 else if(e.target.innerHTML===FULL_HEART) {
       singleLike.innerHTML = EMPTY_HEART
+      singleLike.className = ""
 }
   })
 }
