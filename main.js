@@ -3,6 +3,20 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+let likerObject = document.getElementsByClassName('like-glyph')
+for( let liker of likerObject) {
+  liker.addEventListener('click', mimicServerCall)
+}
+if(mimicServerCall.target%2===0){
+  console.log (EMPTY_HEART)
+}
+else {
+  console.log(FULL_HEART)
+}
+//  // fetch('http://mimicServer.example.com')
+//   .then (response=>response)
+//   .catch ()
+// }
 
 
 
@@ -23,3 +37,4 @@ function mimicServerCall(url="http://mimicServer.example.com", config={}) {
     }, 300);
   });
 }
+//mimicServerCall('http://mimicServer.example.com')
